@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+export function App() {
+  const [text, setText] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const [isSent, setIsSent] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setIsSending(true);
+    await sendMessage(text);
+    setIsSending(false);
+    setIsSent(true);
+  }
+
+  if (isSent) {
+    return <h1>Thanks for feedback!</h1>;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <p>How was your stay at The Prancing Pony?</p>
+      <textarea
+        disabled={isSending}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <br />
+      <button disabled={isSending} type="submit">
+        Send
+      </button>
+      {isSending && <p>Sending...</p>}
+    </form>
   );
 }
 
-export default App;
+function sendMessage(text) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  });
+}
