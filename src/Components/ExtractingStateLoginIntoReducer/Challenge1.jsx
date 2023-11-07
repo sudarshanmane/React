@@ -88,10 +88,17 @@ function Chat({ contact, message, dispatchState, state }) {
     console.log("statestate", state);
     dispatchState({ type: "edited_message", selectedIdMessage: state });
   }
-  console.log(state[contact.id.toString()]);
+
+  function clearMessage() {
+    state[contact.id] = "";
+    dispatchState({ type: "edited_message", selectedIdMessage: state });
+    document.querySelector("#one").value = null;
+  }
+
   return (
     <section className="chat">
       <textarea
+        id="one"
         defaultValue={state[contact.id]}
         placeholder={"Chat to " + contact.name}
         onChange={(e) => {
@@ -99,7 +106,7 @@ function Chat({ contact, message, dispatchState, state }) {
         }}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button onClick={clearMessage}>Send to {contact.email}</button>
     </section>
   );
 }
