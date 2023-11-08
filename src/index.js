@@ -9,11 +9,12 @@ import TaskApp from "./Components/ExtractingStateLoginIntoReducer/ExtractingRedu
 import Messenger from "./Components/ExtractingStateLoginIntoReducer/Challenge1";
 import Page from "./Components/PassingDataDeeplyWithContext/App";
 import ImageBarcodeReader from "./Components/PassingDataDeeplyWithContext/BarcodeReader";
+import Context01 from "./Components/PassingDataDeeplyWithContext/ContextTrile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ImageBarcodeReader></ImageBarcodeReader>
+    <Context01></Context01>
   </React.StrictMode>
 );
 
