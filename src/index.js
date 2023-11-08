@@ -8,12 +8,12 @@ import FileteringList from "./Components/SharingStateBetweenComponents/Challenge
 import TaskApp from "./Components/ExtractingStateLoginIntoReducer/ExtractingReducerLogic";
 import Messenger from "./Components/ExtractingStateLoginIntoReducer/Challenge1";
 import Page from "./Components/PassingDataDeeplyWithContext/App";
-import Excell from "./Components/PassingDataDeeplyWithContext/Excell";
+import ImageBarcodeReader from "./Components/PassingDataDeeplyWithContext/BarcodeReader";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Excell></Excell>
+    <ImageBarcodeReader></ImageBarcodeReader>
   </React.StrictMode>
 );
 
