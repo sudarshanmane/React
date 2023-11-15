@@ -41,6 +41,7 @@ function SearchInput({ setSearchedQuery }) {
     </>
   );
 }
+
 const FileteringList = () => {
   const [searchedQuery, setSearchedQuery] = useState(null);
   const [selectedQueryList, setSelectedQueryList] = useState(foods);
